@@ -32,3 +32,6 @@ console.log(reverseString)
 
 let reverseString1 = org.split("").reverse().join(" ") // This will reverse the string without comma seperated but with space between each char
 console.log(reverseString1)
+
+let splitnew = org.split("l,f") // this is not poosible as it returns same value without split
+console.log(splitnew)
