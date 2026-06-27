@@ -4,12 +4,11 @@
 | ---> Absolute xpath
 | ---> Relative xpath
 
-
  */
 
 /* Concepts of CSS selectors
 a. Select by Id
-b Select by Class
+b. Select by Class
 c. Select by Attribute
 d. Decendant combinator
 e. #####
@@ -102,4 +101,95 @@ Syntax:
 (//tagName[@attribute = 'attributeValue'])[index value]
  */
 
------ Advanced Xpath - yet to add -----
+----- Advanced Xpath -----
+
+1. Parent to Child
+2. Grand parent to grand child
+3. Child to parent
+4. Grand child to grand parent
+5. Elder sibilings to younger sibilings
+6. Younger sibilings to Elder sibilings
+7. Elder cousin to younger cousin
+8. Young cousin to Elder cousin
+
+Syntax and Example:
+
+1. Parent to child
+
+Syntax:
+    Relative xpath of parent/tagName of child
+
+    //form[@id='login']/p
+
+2. Grand parent to grand child
+
+Syntax:
+    Relative xpath of grand parent//tagName of grand child
+
+3. Child to parent
+
+Syntax: 
+    Relative xpath of child/parent:: tagName of parent  --> :: -> Scope operator
+
+    //input[@id='username']/parent::p
+
+4. Grand child to grand parent:
+
+Syntax:
+    Relative xpath of grand child/ancestor:: tagName of grand parent
+
+    //input[@id='password']/ancestor::form
+
+Axes locators:
+
+5. Elder sibiling to younger sibiling
+
+Syntax: 
+    (Relative xpath of elder sibiling)/following-sibiling::tagName of younger sibiling
+
+    //label[text()='username']/following-sibiling::input
+
+6. Young sibiling to Elder sibiling
+
+Syntax:
+    (Relative xpath of younger sibiling)/preceeding-sibiling::tagName of elder sibiling
+
+    //input[@id='username']/preceeding-sibling::label
+
+7. Elder cousin to Younger cousin
+
+Syntax: 
+    (Relative xpath of elder cousin)/following::tagName of younger cousin
+
+    //input[@id='username']/following::label
+
+8. Younger cousin to Elder cousin
+
+Syntax: 
+    (Relative xpath of younger cousin)/preceeding::tagName of elder cousin
+
+    //label[text()='password']/preceeding::input
+
+
+Playwright Locators:
+
+--> It is an inbuild locators in PW. It's more efficent & reliable way to find the locators. It is very fast and less flaky
+
+--> PW has 7 inbuild locators as follows
+
+1. getByRole() --> check accessibility and write locator using role --> p1
+2. getByText() --> use this when we have visible text
+3. getByLabel() --> use this when text present inside <label> tag
+4. getByTitle() --> use this when we have title inside <title> tag and also when we have attribute title
+5. getByPlaceholder() --> use this when we have placeholder atttribute
+6. getByAltText() --> use this when we have Alttext attribute
+7. getByTestId()  --> use this when we have data-test Id -->  p1
+
+Refer assignment files for more info
+
+
+Summary:
+3 types of locators
+1. CSS --> p2
+2. Xpath --> p3
+3. PW locators --> p1
